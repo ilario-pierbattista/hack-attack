@@ -31,3 +31,4 @@ L'interprete fa:
 ## Contenuti
 
 - [Getting started](01/getting-started.md)
+- [Statement ad espressioni](02/statements.md)
