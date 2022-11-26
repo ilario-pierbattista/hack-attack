@@ -131,7 +131,7 @@ Inverte un valore booleano.
 | True  | False |
 | False | True |
 
-## Comparazione
+### Comparazione
 
 Gli operatori di comparazione formano un'espressione che compara due valori generici e restituisce un valore booleano.
 I più comuni ed usati sono i [comparatori aritmetici](https://docs.python.org/3/reference/expressions.html#comparisons). Abbiamo visto prima l'operatore `==` che verifica l'uguaglianza del valori a sinistra e a destra dell'operatore.
@@ -165,6 +165,59 @@ Una veloce tabella riassuntiva dei comparatori aritmetici:
     2. Richiede in input un secondo numero. Deve essere strettamente maggiore del primo, altrimenti deve stampare un errore.
     3. Richiede in input un terzo numero.
     4. Stampa "ESCLUSO" se non è incluso nell'intervallo numerico determinato dai primi due numeri (estremi inclusi), "INCLUSO" altrimento.
+
+
+## Funzioni e procedure
+
+Affrontiamo l'argomento da un punto di vista molto pratico: funzioni e procedure permettono di raggruppare porzioni di codice e costruire su di esse delle **astrazioni**.
+
+Cosa distingue una funzione da una procedura? Entrambe accettano uno, nessuno o molteplici parametri in ingresso (argomenti). Le funzioni restituiscono (`return`) un valore, mentre le procedure non restituiscono nulla. Le procedure vengono definite ed invocate per godere dei loro **side-effect**, come ad esempio la stampa di una stringa, mentre le funzioni vengono definite ed invocate per godere della computazione del loro valore di ritorno.
+
+Questa distinzione è per lo più concettuale. Nella maggior parte dei linguaggi di programmazione (Python tra questi) non vi sono differenze formali tra definire una procedura e definire una funzione.
+Ancora, in Python, così come nella maggior parte dei linguaggi, non vengono fatti rispetto alla purezza della funzione (una **funzione pura** è una funzione priva di side-effect), per cui è sicuramente possibile definire funzioni che, ad esempio, stampano stringhe, scrivono su file, accedono ai database.
+
+In termini progettuali, è bene tenere a mente un principio fondamentale: all'interno del corpo della funzione si dovrebbe sempre mantenere lo stesso livello di astrazione.
+Non si dovrebbe mai mischiare operazioni ad alto livello di astrazione, con operazioni ad un più basso livello di astrazione. Torneremo a tempo debito su questo punto.
+
+La sintassi per la definizione di funzioni e procedure in Python ha la seguente forma.
+
+```python
+def <nomeFunzione>([<argomento1>], [<argomento2>], ..., [<argomentoN>]):
+    <corpo>
+```
+
+In questa psuedo-notazione le parentesi quadre indicano l'opzionalità: uno, nessuno o molteplici argomenti.
+Questa sintassi non esprime nulla riguardo al valore di ritorno, a sottolineare il fatto che non vi sia differenza formale tra funzioni e procedure nel linguaggio.
+
+La funzione e la procedura di seguito hanno la stessa struttura sintattica.
+Sappiamo che la prima è una funzione perchè c'è esplicitamente `return restoDivisioneIntera2 == 0` al termine del corpo.
+
+```python
+def isEven(x):
+    restoDivisioneIntera2 = x % 2
+    return restoDivisioneIntera2 == 0
+```
+
+```python
+def hello(who):
+    print("Hello, ", who)
+```
+
+Di qui in avanti userò il termine funzione per riferirmi al costrutto del linguaggio e non farò distinzioni tra funzioni e procedure, salvo contraria indicazione.
+
+### Scope delle variabili
+
+```python
+def double(x):
+    return x * 2
+
+x = 3
+print("x: ", x)
+print("double(x): ", double(x))
+print("x again: ", x)
+```
+
+### Esercizi
 
 ## References
 
